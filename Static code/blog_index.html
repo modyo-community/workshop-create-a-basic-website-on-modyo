@@ -1,0 +1,60 @@
+
+<style>
+    .main-blog {
+        grid-template-columns: repeat(3, 1fr);
+    }
+</style>
+<section class="bg-white py-8">
+    <div class="container">
+        <div class="text-center text-balance d-flex justify-content-center mb-6">
+            <div class="col-12 col-lg-8">
+                <span class="badge bg-secondary-soft">Latests blog posts</span>
+                <h2 class="h3">Blog posts</h2>
+                <h5 class="text-gray-500 fw-normal">Your financial journey starts here. Expert insights, practical tips,
+                    and actionable strategies.</h5>
+            </div>
+        </div>
+
+
+        <div class="d-flex flex-sm-column d-lg-grid gap-4 main-blog">
+
+            {% for entry in entries %}
+            <article class="card p-4 shadow-sm border-0 w-100">
+
+                <picture class="mb-4">
+                    <source srcset="https://cdn.modyo.cloud/uploads/95a41afe-2fbb-49f7-aae6-c9c760d2dd1b/original/Hero-banner.png">
+                    <img class="mw-100 rounded-1" src="https://cdn.modyo.cloud/uploads/95a41afe-2fbb-49f7-aae6-c9c760d2dd1b/original/Hero-banner.png" alt="person">
+                </picture>
+
+                <div class="d-flex mb-2 align-items-center">
+                    <span class="badge bg-info-soft text-capitalize">Lorem Ipsum</span>
+                    <small class="ms-auto text-gray-500">
+                        John Smith
+                        <span class="text-gray-300 mx-2">|</span>
+                        5 min lecture
+                    </small>
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="mb-3 h6 "> Lorem Ipsum </h4>
+                    <p class="text-gray-500 text-capitalize">
+                        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                    </p>
+                </div>
+
+                <div>
+                    <a href="{{ entry.meta.url }}" class="link-secondary">Learn more
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+            {% endfor %}
+        </div> <!-- flex -->
+
+    </div>
+
+    <div>
+        {{ entries | pagination_links }}
+    </div>
+
+</section>
